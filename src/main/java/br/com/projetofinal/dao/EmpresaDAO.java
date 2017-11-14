@@ -4,13 +4,16 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import br.com.projetofinal.model.Empresa;
 
 @SuppressWarnings("serial")
 public class EmpresaDAO implements Serializable {
 
+	@Inject
 	private EntityManager entityManager;
 
 	private GenericDAO<Empresa> dao;
@@ -38,6 +41,17 @@ public class EmpresaDAO implements Serializable {
 
 	public Empresa buscaPorId(Long id) {
 		return dao.buscaPorId(id);
+	}
+
+	public boolean buscaLogin(Empresa empresa) {
+
+		TypedQuery<Empresa> query = entityManager.createQuery("SELECT e FROM Empresa e WHERE e.cnpj = :pCnpj AND e.senha = :pSenha", Empresa.class);
+		query.setParameter("pCnpj", empresa.getCnpj());
+		query.setParameter("pSenha", empresa.getSenha());
+
+		Empresa resultado = query.getSingleResult();
+
+		return resultado != null;
 	}
 
 	public List<Empresa> listarTudo() {

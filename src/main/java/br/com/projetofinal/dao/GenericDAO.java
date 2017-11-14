@@ -2,18 +2,16 @@ package br.com.projetofinal.dao;
 
 import java.io.Serializable;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.projetofinal.model.GenericModel;
 
 @SuppressWarnings("serial")
 public class GenericDAO<Entidade extends GenericModel> implements Serializable {
+	
+	private EntityManager entityManager;
 
 	private final Class<Entidade> entidade;
-	
-	@Inject
-	private EntityManager entityManager;
 
 	public GenericDAO(EntityManager entityManager, Class<Entidade> entidade) {
 		this.entityManager = entityManager;

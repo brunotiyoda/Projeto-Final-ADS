@@ -3,14 +3,19 @@ package br.com.projetofinal.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.enterprise.inject.Model;
+import javax.inject.Inject;
+
 import br.com.projetofinal.model.Empresa;
 import br.com.projetofinal.service.EmpresaService;
+import br.com.projetofinal.tx.Transacional;
 
 @SuppressWarnings("serial")
+@Model
 public class EmpresaController implements Serializable {
 
-	private GenericController<Empresa> controller;
 
+	@Inject
 	private EmpresaService service;
 
 	private Empresa empresa = new Empresa();
@@ -23,24 +28,17 @@ public class EmpresaController implements Serializable {
 		this.empresa = empresa;
 	}
 
-	public void salvar(Empresa entidade) {
-		controller.salvar(entidade);
+	@Transacional
+	public void salvar() {
+		service.salvar(empresa);
 	}
 
-	public void editar(Empresa entidade) {
-		controller.editar(entidade);
-	}
-
-	public void ativar(Empresa entidade) {
-		controller.ativar(entidade);
-	}
-
-	public void inativar(Empresa entidade) {
-		controller.inativar(entidade);
+	public void editar() {
+		service.editar(empresa);
 	}
 
 	public Empresa buscaPorId(Long id) {
-		return controller.buscaPorId(id);
+		return service.buscaPorId(id);
 	}
 
 	public List<Empresa> listarTudo() {

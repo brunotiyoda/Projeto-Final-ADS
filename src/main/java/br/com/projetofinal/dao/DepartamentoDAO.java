@@ -1,6 +1,7 @@
 package br.com.projetofinal.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
@@ -37,6 +38,12 @@ public class DepartamentoDAO implements Serializable {
 
 	public Departamento buscaPorId(Long id) {
 		return dao.buscaPorId(id);
+	}
+
+	public List<Departamento> listarTudo() {
+		String jpql;
+		jpql = "SELECT d FROM Departamento d ORDER BY d.departamento";
+		return entityManager.createQuery(jpql, Departamento.class).getResultList();
 	}
 
 }

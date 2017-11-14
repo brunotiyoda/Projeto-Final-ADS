@@ -10,6 +10,10 @@ public class GenericController<Entidade extends GenericModel> implements Seriali
 
 	private GenericService<Entidade> service;
 
+	public GenericController(GenericService<Entidade> service) {
+		this.service = service;
+	}
+
 	public void salvar(Entidade entidade) {
 		service.salvar(entidade);
 	}

@@ -1,6 +1,7 @@
 package br.com.projetofinal.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -41,6 +42,12 @@ public class CargoDAO implements Serializable {
 	public Cargo buscaPorId(Long id) {
 		TypedQuery<Cargo> query = entityManager.createQuery("SELECT c FROM Cargo c WHERE c.id = :id", Cargo.class);
 		return query.setParameter("id", id).getSingleResult();
+	}
+
+	public List<Cargo> listarTudo() {
+		String jpql;
+		jpql = "SELECT c FROM Cargo c ORDER BY c.cargo";
+		return entityManager.createQuery(jpql, Cargo.class).getResultList();
 	}
 
 }

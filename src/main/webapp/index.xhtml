@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+<h:head>
+	<title>Login Web</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Bootstrap Core CSS -->
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+
+	<!-- Custom Fonts -->
+	<h:outputStylesheet library="webjars"
+		name="font-awesome/4.7.0/css/font-awesome-jsf.css" />
+</h:head>
+
+<h:body>
+	<p:growl id="growl" showDetail="true" />
+	<div class="wrapper">
+		<div class="container">
+			<h:form id="formLogin">
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+
+				<div class="col s5 offset-s3">
+					<div class="card text-center">
+						<h1>
+							Systems Way <span class="badge badge-secondary">RH</span>
+						</h1>
+						<div class="card-content">
+							<div class="center-align">
+
+								<div class="form-group">
+									<p:inputText id="usuario" required="true"
+										requiredMessage="Login requerido" placeholder="usuario (cnpj)" maxlength="14"
+										value="#{empresaControllerLogin.empresa.cnpj}"/>
+								</div>
+
+								<div class="form-group ">
+									<p:password id="senha" required="true"
+										requiredMessage="Senha requerida" placeholder="senha" 
+										value="#{empresaControllerLogin.empresa.senha}"/>
+								</div>
+
+								<div class="row form-group btn-group">
+									<p:commandLink styleClass="btn btn-primary btn-sm"
+										value="ENTRAR" update="growl" 
+										action="#{empresaControllerLogin.logar()}"/>
+
+									<p:commandLink styleClass="btn btn-info btn-sm"
+										value="Cadastre sua Empresa :D"
+										oncomplete="PF('cdsEmpresa').show();" />
+
+									<p:commandLink styleClass="btn btn-warning btn-sm"
+										value="Sou um Colaborador" />
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</h:form>
+
+			<p:dialog id="dialogo" widgetVar="cdsEmpresa"
+				header="Cadastre sua Empresa :D" draggable="false" resizable="false"
+				modal="true" closable="true">
+
+				<div class="modal-dialog">
+					<div class="modal-body">
+						<h:form id="formCdsEmpresa">
+							<div class="form-group">
+								<p:inputText id="nome" required="true"
+									requiredMessage="Nome requerido" placeholder="Nome da Empresa"
+									value="#{empresaController.empresa.nome}" />
+							</div>
+
+							<div class="form-group">
+								<p:inputText id="cnpj" required="true"
+									requiredMessage="CNPJ requerido"
+									placeholder="CNPJ (apenas números)"
+									value="#{empresaController.empresa.cnpj}" maxlength="14" />
+							</div>
+
+							<div class="form-group">
+								<p:password id="senha" required="true"
+									requiredMessage="Senha requerida" placeholder="senha"
+									value="#{empresaController.empresa.senha}" />
+							</div>
+
+							<div class="btn-group modal-footer">
+								<p:commandLink styleClass="btn btn-success btn-sm"
+									value="SALVAR" update="growl"
+									action="#{empresaController.salvar()}" />
+
+								<p:commandLink styleClass="btn btn-danger btn-sm"
+									value="Cancelar" oncomplete="PF('cdsEmpresa').hide();" />
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</p:dialog>
+
+		</div>
+		<!-- Fim container -->
+	</div>
+	<!-- Fim wrapper -->
+</h:body>
+
+</html>

@@ -1,5 +1,7 @@
 package br.com.projetofinal.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +25,9 @@ public class Funcionario extends GenericModel {
 
 	@Column(nullable = false, length = 15)
 	private String senha;
+
+	@Column(nullable = false, precision = 4, scale = 2)
+	private BigDecimal salario;
 
 	private boolean ativo;
 
@@ -62,6 +67,14 @@ public class Funcionario extends GenericModel {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public BigDecimal getSalario() {
+		return salario;
+	}
+
+	public void setSalario(BigDecimal salario) {
+		this.salario = salario;
 	}
 
 	public boolean isAtivo() {
