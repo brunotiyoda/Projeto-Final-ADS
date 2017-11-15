@@ -2,6 +2,7 @@ package br.com.projetofinal.dao;
 
 import java.io.Serializable;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.projetofinal.model.GenericModel;
@@ -9,6 +10,7 @@ import br.com.projetofinal.model.GenericModel;
 @SuppressWarnings("serial")
 public class GenericDAO<Entidade extends GenericModel> implements Serializable {
 	
+	@Inject
 	private EntityManager entityManager;
 
 	private final Class<Entidade> entidade;

@@ -14,7 +14,6 @@ import br.com.projetofinal.tx.Transacional;
 @Model
 public class EmpresaController implements Serializable {
 
-
 	@Inject
 	private EmpresaService service;
 
@@ -41,7 +40,7 @@ public class EmpresaController implements Serializable {
 		return service.buscaPorId(id);
 	}
 
-	public List<Empresa> listarTudo() {
+	public List<Empresa> getEmpresas() {
 		return service.listarTudo();
 	}
 

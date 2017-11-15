@@ -25,11 +25,7 @@
 	<p:growl id="growl" showDetail="true" />
 	<div class="wrapper">
 		<div class="container">
-			<h:form id="formLogin">
-				<br></br>
-				<br></br>
-				<br></br>
-				<br></br>
+			<h:form id="formLoginEmp">
 				<br></br>
 				<br></br>
 				<br></br>
@@ -41,7 +37,7 @@
 				<br></br>
 				<br></br>
 
-				<div class="col s5 offset-s3">
+				<div class="col s4 offset-s3">
 					<div class="card text-center">
 						<h1>
 							Systems Way <span class="badge badge-secondary">RH</span>
@@ -51,27 +47,65 @@
 
 								<div class="form-group">
 									<p:inputText id="usuario" required="true"
-										requiredMessage="Login requerido" placeholder="usuario (cnpj)" maxlength="14"
+										requiredMessage="Login empresa requerido" placeholder="cnpj" maxlength="14"
 										value="#{empresaControllerLogin.empresa.cnpj}"/>
 								</div>
 
 								<div class="form-group ">
 									<p:password id="senha" required="true"
-										requiredMessage="Senha requerida" placeholder="senha" 
+										requiredMessage="Senha empresa requerida" placeholder="senha" 
 										value="#{empresaControllerLogin.empresa.senha}"/>
 								</div>
 
 								<div class="row form-group btn-group">
 									<p:commandLink styleClass="btn btn-primary btn-sm"
 										value="ENTRAR" update="growl" 
-										action="#{empresaControllerLogin.logar()}"/>
+										action="#{empresaControllerLogin.logar}"/>
 
 									<p:commandLink styleClass="btn btn-info btn-sm"
 										value="Cadastre sua Empresa :D"
 										oncomplete="PF('cdsEmpresa').show();" />
 
-									<p:commandLink styleClass="btn btn-warning btn-sm"
-										value="Sou um Colaborador" />
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</h:form>
+			
+			
+			<h:form id="formLoginCol">
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+
+				<div class="col s4 offset-s3">
+					<div class="card text-center">
+						<h1>
+							Systems Way <span class="badge badge-secondary">Colaborador</span>
+						</h1>
+						<div class="card-content">
+							<div class="center-align">
+
+								<div class="form-group">
+									<p:inputText id="usuarioC" required="true"
+										requiredMessage="Login colaborador requerido" placeholder="cpf" maxlength="11"
+										value="#{funcionarioControllerLogin.funcionario.cpf}"/>
+								</div>
+
+								<div class="form-group ">
+									<p:password id="senhaC" required="true"
+										requiredMessage="Senha colaborador requerida" placeholder="senha" 
+										value="#{funcionarioControllerLogin.funcionario.senha}"/>
+								</div>
+
+								<div class="row form-group btn-group">
+									<p:commandLink styleClass="btn btn-primary btn-sm"
+										value="ENTRAR" update="growl" 
+										action="#{funcionarioControllerLogin.logar}"/>
 								</div>
 
 							</div>

@@ -15,23 +15,23 @@ public class DepartamentoService {
 	private GenericService<Departamento> service;
 
 	public void salvar(Departamento entidade) {
-		service.salvar(entidade);
+		dao.salvar(entidade);
 	}
 
 	public void editar(Departamento entidade) {
-		service.editar(entidade);
+		dao.editar(entidade);
 	}
 
 	public void ativar(Departamento entidade) {
-		service.ativar(entidade);
+		dao.ativar(entidade);
 	}
 
 	public void inativar(Departamento entidade) {
-		service.inativar(entidade);
+		dao.inativar(entidade);
 	}
 
 	public Departamento buscaPorId(Long id) {
-		return service.buscaPorId(id);
+		return dao.buscaPorId(id);
 	}
 
 	public List<Departamento> listarTudo() {

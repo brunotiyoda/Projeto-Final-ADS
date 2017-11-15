@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+<h:head>
+	<title>Empresa - SWRH</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Bootstrap Core CSS -->
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+
+	<!-- Custom Fonts -->
+	<h:outputStylesheet library="webjars"
+		name="font-awesome/4.7.0/css/font-awesome-jsf.css" />
+</h:head>
+
+<ui:composition template="emp-principal.xhtml">
+
+	<ui:define name="conteudo">
+
+		<!-- Page Heading -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Departamentos na Empresa</h1>
+			</div>
+		</div>
+		<!-- /.row -->
+
+		<h:dataTable styleClass="table table-striped  table-bordered "
+			var="departamento" value="#{departamentoController.departamentos}">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				#{departamento.id}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Departamento</f:facet>
+				#{departamento.departamento}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Empresa</f:facet>
+				#{departamento.empresa.nome}
+			</h:column>
+		</h:dataTable>
+
+
+	</ui:define>
+
+
+</ui:composition>
+
+</html>

@@ -56,7 +56,7 @@ public class EmpresaDAO implements Serializable {
 
 	public List<Empresa> listarTudo() {
 		String jpql;
-		jpql = "SELECT e FROM Empresa e";
+		jpql = "SELECT e FROM Empresa e ORDER BY e.nome";
 		return entityManager.createQuery(jpql, Empresa.class).getResultList();
 	}
 

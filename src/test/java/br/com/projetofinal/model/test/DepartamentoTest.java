@@ -15,9 +15,6 @@ public class DepartamentoTest {
 		
 		funcionario = funcionarioDAO.buscaPorId(1L);
 
-		departamento.setDepartamento("Tecnologia da Informação");
-		departamento.setFuncionario(funcionario);
-
 		EntityManager entityManager = new JPAUtil().getEntityManager();
 
 		entityManager.getTransaction().begin();

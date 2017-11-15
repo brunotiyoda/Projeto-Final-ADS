@@ -15,23 +15,23 @@ public class FuncionarioService {
 	private GenericService<Funcionario> service;
 
 	public void salvar(Funcionario entidade) {
-		service.salvar(entidade);
+		dao.salvar(entidade);
 	}
 
 	public void editar(Funcionario entidade) {
-		service.editar(entidade);
+		dao.editar(entidade);
 	}
 
 	public void ativar(Funcionario entidade) {
-		service.ativar(entidade);
+		dao.ativar(entidade);
 	}
 
 	public void inativar(Funcionario entidade) {
-		service.inativar(entidade);
+		dao.inativar(entidade);
 	}
 
 	public Funcionario buscaPorId(Long id) {
-		return service.buscaPorId(id);
+		return dao.buscaPorId(id);
 	}
 
 	public List<Funcionario> listarTudo() {

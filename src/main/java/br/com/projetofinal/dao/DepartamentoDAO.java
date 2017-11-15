@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.projetofinal.model.Departamento;
@@ -11,6 +12,7 @@ import br.com.projetofinal.model.Departamento;
 @SuppressWarnings("serial")
 public class DepartamentoDAO implements Serializable {
 
+	@Inject
 	private EntityManager entityManager;
 
 	private GenericDAO<Departamento> dao;

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cargo extends GenericModel {
@@ -15,6 +16,9 @@ public class Cargo extends GenericModel {
 
 	@Column(nullable = false, length = 15)
 	private String cargo;
+
+	@ManyToOne
+	private Empresa empresa;
 
 	public Long getId() {
 		return id;
@@ -30,6 +34,14 @@ public class Cargo extends GenericModel {
 
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
+	}
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 
 }

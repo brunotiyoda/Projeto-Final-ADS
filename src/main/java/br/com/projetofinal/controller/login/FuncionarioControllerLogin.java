@@ -26,18 +26,14 @@ public class FuncionarioControllerLogin implements Serializable {
 		return funcionario;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
-
 	public String logar() {
 		// captura qual usuário está fazendo login
 		System.out.println("Fazendo login do usuário " + this.funcionario.getCpf());
 		boolean existe = funcionarioDAO.buscaLogin(this.funcionario);
 
 		if (existe) {
-			context.getExternalContext().getSessionMap().put("usuarioLogado", this.funcionario);
-			return "principal?faces-redirect=true";
+			context.getExternalContext().getSessionMap().put("colaboradorLogado", this.funcionario);
+			return "/colaborador/col-principal?faces-redirect=true";
 		}
 
 		context.getExternalContext().getFlash().setKeepMessages(true);
@@ -46,7 +42,11 @@ public class FuncionarioControllerLogin implements Serializable {
 	}
 
 	public String deslogar() {
-		context.getExternalContext().getSessionMap().remove("usuarioLogado");
-		return "index?faces-redirect=true";
+		context.getExternalContext().getSessionMap().remove("colaboradorLogado");
+		return "../index?faces-redirect=true";
+	}
+	
+	public String souColaborador() {
+		return "sou-colaborador?faces-redirect=true";
 	}
 }

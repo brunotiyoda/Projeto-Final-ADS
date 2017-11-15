@@ -15,23 +15,15 @@ public class CargoService {
 	private GenericService<Cargo> service;
 
 	public void salvar(Cargo entidade) {
-		service.salvar(entidade);
+		dao.salvar(entidade);
 	}
 
 	public void editar(Cargo entidade) {
-		service.editar(entidade);
-	}
-
-	public void ativar(Cargo entidade) {
-		service.ativar(entidade);
-	}
-
-	public void inativar(Cargo entidade) {
-		service.inativar(entidade);
+		dao.editar(entidade);
 	}
 
 	public Cargo buscaPorId(Long id) {
-		return service.buscaPorId(id);
+		return dao.buscaPorId(id);
 	}
 
 	public List<Cargo> listarTudo() {

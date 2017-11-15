@@ -33,7 +33,7 @@ public class EmpresaControllerLogin implements Serializable {
 
 		if (existe) {
 			context.getExternalContext().getSessionMap().put("usuarioLogado", this.empresa);
-			return "emp-principal?faces-redirect=true";
+			return "/empresa/emp-principal?faces-redirect=true";
 		}
 
 		context.getExternalContext().getFlash().setKeepMessages(true);
@@ -43,6 +43,6 @@ public class EmpresaControllerLogin implements Serializable {
 
 	public String deslogar() {
 		context.getExternalContext().getSessionMap().remove("usuarioLogado");
-		return "index?faces-redirect=true";
+		return "../index?faces-redirect=true";
 	}
 }

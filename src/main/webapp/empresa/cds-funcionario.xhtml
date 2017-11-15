@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+<h:head>
+	<title>Empresa - SWRH</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Bootstrap Core CSS -->
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+
+	<!-- Custom Fonts -->
+	<h:outputStylesheet library="webjars"
+		name="font-awesome/4.7.0/css/font-awesome-jsf.css" />
+</h:head>
+
+<ui:composition template="emp-principal.xhtml">
+
+	<ui:define name="conteudo">
+
+		<!-- Page Heading -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Cadastro de Colaboradores</h1>
+			</div>
+		</div>
+		<!-- /.row -->
+
+		<fieldset>
+			<legend>Informações Pessoais</legend>
+
+			<h:form>
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="form-group">
+							<label>Nome</label>
+							<p:inputText id="nome" class="form-control"
+								placeholder="Nome Completo" required="true"
+								requiredMessage="O campo Nome é requerido."
+								value="#{funcionarioController.funcionario.nome}" />
+							<p:message for="nome" />
+						</div>
+
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-2">
+						<div class="form-group">
+							<label>CPF</label>
+							<p:inputText id="cpf" class="form-control"
+								placeholder="apenas números" required="true"
+								requiredMessage="O campo CPF é requerido." maxlength="11"
+								value="#{funcionarioController.funcionario.cpf}" />
+							<p:message for="cpf" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-lg-2">
+						<div class="form-group">
+							<label>Salário</label>
+							<p:inputText id="salario" class="form-control" required="true"
+								requiredMessage="O campo Salário é requerido."
+								value="#{funcionarioController.funcionario.salario}" />
+							<p:message for="salario" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-2">
+						<div class="form-group">
+							<label>Cargo</label>
+							<h:selectOneMenu id="cargo" class="form-control" required="true"
+								requiredMessage="O campo Cargo é requerido."
+								value="#{funcionarioController.cargoId}">
+								<f:selectItem itemLabel="Cargo" noSelectionOption="true" />
+								<f:selectItems value="#{funcionarioController.cargos}" var="cargo"
+									itemValue="#{cargo.id}"
+									itemLabel="#{cargo.cargo}" />
+							</h:selectOneMenu>
+							<p:message for="cargo" />
+						</div>
+					</div>
+
+					<div class="col-lg-2">
+						<div class="form-group">
+							<label>Departamento</label>
+							<h:selectOneMenu id="departamento" class="form-control" required="true"
+								requiredMessage="O campo Departamento é requerido."
+								value="#{funcionarioController.departamentoId}">
+								<f:selectItem itemLabel="Departamento" noSelectionOption="true" />
+								<f:selectItems value="#{funcionarioController.departamentos}" var="departamento"
+									itemValue="#{departamento.id}"
+									itemLabel="#{departamento.departamento}" />
+							</h:selectOneMenu>
+							<p:message for="departamento" />
+						</div>
+					</div>
+					
+					<div class="col-lg-2">
+						<div class="form-group">
+							<label>Empresa</label>
+							<h:selectOneMenu id="empresa" class="form-control" required="true"
+								requiredMessage="O campo Departamento é requerido."
+								value="#{funcionarioController.empresaId}">
+								<f:selectItem itemLabel="Departamento" noSelectionOption="true" />
+								<f:selectItems value="#{funcionarioController.empresas}" var="empresa"
+									itemValue="#{empresa.id}"
+									itemLabel="#{empresa.nome}" />
+							</h:selectOneMenu>
+							<p:message for="departamento" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-lg-2">
+						<div class="form-group">
+							<label>Senha</label>
+							<p:password id="senha" class="form-control" placeholder="Senha"
+								required="true" requiredMessage="O campo Senha é requerido."
+								match="confSenha" value="#{funcionarioController.funcionario.senha}" />
+							<p:message for="senha" />
+						</div>
+					</div>
+					<div class="col-lg-2">
+						<div class="form-group">
+							<label>Confimar Senha</label>
+							<p:password id="confSenha" class="form-control"
+								placeholder="Digite a Senha novamente" required="true"
+								requiredMessage="O campo Confirmar Senha é requerido."
+								value="#{funcionarioController.funcionario.senha}" />
+						</div>
+					</div>
+				</div>
+
+				<div class="pull-right">
+					<h:commandButton id="bntSalvar" class="btn btn-success"
+						value="Salvar" action="#{funcionarioController.salvar}" />
+				</div>
+			</h:form>
+		</fieldset>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

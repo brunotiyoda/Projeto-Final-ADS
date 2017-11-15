@@ -26,10 +26,13 @@ public class Funcionario extends GenericModel {
 	@Column(nullable = false, length = 15)
 	private String senha;
 
-	@Column(nullable = false, precision = 4, scale = 2)
+	@Column(nullable = false, precision = 10, scale = 2)
 	private BigDecimal salario;
 
 	private boolean ativo;
+
+	@ManyToOne
+	private Departamento departamento;
 
 	@ManyToOne
 	private Empresa empresa;
@@ -75,6 +78,14 @@ public class Funcionario extends GenericModel {
 
 	public void setSalario(BigDecimal salario) {
 		this.salario = salario;
+	}
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
 
 	public boolean isAtivo() {

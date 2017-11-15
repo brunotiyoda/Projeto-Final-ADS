@@ -28,6 +28,7 @@ public class Autorizador implements PhaseListener {
 		}
 
 		Empresa usuarioLogado = (Empresa) context.getExternalContext().getSessionMap().get("usuarioLogado");
+		
 
 		if (usuarioLogado != null) {
 			return;

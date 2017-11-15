@@ -18,7 +18,7 @@ public class Departamento extends GenericModel {
 	private String departamento;
 
 	@ManyToOne
-	private Funcionario funcionario;
+	private Empresa empresa;
 
 	public Long getId() {
 		return id;
@@ -36,12 +36,12 @@ public class Departamento extends GenericModel {
 		this.departamento = departamento;
 	}
 
-	public Funcionario getFuncionario() {
-		return funcionario;
+	public Empresa getEmpresa() {
+		return empresa;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 
 }

@@ -45,7 +45,7 @@ public class FuncionarioDAO implements Serializable {
 
 	public boolean buscaLogin(Funcionario funcionario) {
 
-		TypedQuery<Funcionario> query = entityManager.createQuery("SELECT e FROM Empresa e WHERE e.cpf = :pCpf AND u.senha = :pSenha", Funcionario.class);
+		TypedQuery<Funcionario> query = entityManager.createQuery("SELECT f FROM Funcionario f WHERE f.cpf = :pCpf AND f.senha = :pSenha", Funcionario.class);
 		query.setParameter("pCpf", funcionario.getCpf());
 		query.setParameter("pSenha", funcionario.getSenha());
 

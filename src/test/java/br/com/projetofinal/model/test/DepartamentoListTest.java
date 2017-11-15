@@ -21,7 +21,6 @@ public class DepartamentoListTest {
 		for (Departamento departamento : departamentos) {
 			System.out.println(departamento.getId());
 			System.out.println(departamento.getDepartamento());
-			System.out.println(departamento.getFuncionario().getNome());
 		}
 	}
 }
