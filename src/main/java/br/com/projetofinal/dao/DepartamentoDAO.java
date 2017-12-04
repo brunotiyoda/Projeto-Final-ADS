@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import br.com.projetofinal.architecture.dao.GenericDAO;
 import br.com.projetofinal.model.Departamento;
 
 @SuppressWarnings("serial")

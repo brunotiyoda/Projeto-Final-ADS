@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import br.com.projetofinal.architecture.model.GenericModel;
+
 @Entity
 public class Funcionario extends GenericModel {
 

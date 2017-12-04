@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import br.com.projetofinal.architecture.model.GenericModel;
+
 @Entity
 public class Cargo extends GenericModel {
 

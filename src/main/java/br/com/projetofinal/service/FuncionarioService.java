@@ -4,15 +4,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import br.com.projetofinal.architecture.service.GenericService;
 import br.com.projetofinal.dao.FuncionarioDAO;
 import br.com.projetofinal.model.Funcionario;
 
-public class FuncionarioService {
+public class FuncionarioService extends GenericService<Funcionario> {
 
 	@Inject
 	private FuncionarioDAO dao;
-
-	private GenericService<Funcionario> service;
 
 	public void salvar(Funcionario entidade) {
 		dao.salvar(entidade);
@@ -37,5 +36,7 @@ public class FuncionarioService {
 	public List<Funcionario> listarTudo() {
 		return dao.listarTudo();
 	}
+	
+	
 
 }

@@ -25,7 +25,66 @@
 	<p:growl id="growl" showDetail="true" />
 	<div class="wrapper">
 		<div class="container">
+		
+			<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Systems Way RH</a>
+				</div>
 
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#">
+								Home
+							</a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								Cadastros
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+					            <li><a href="cds-horas.xhtml">Horas</a></li>
+					            <li><a href="horas.xhtml">Horas2</a></li>
+					         </ul>
+						</li>
+						<li>
+							<a href="#">
+							Meus dados
+							</a>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								Gerência
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+					            <li><a href="#">Cargos</a></li>
+					            <li><a href="#">Departamentos</a></li>
+					            <li><a href="#">Colaboradores</a></li>
+					         </ul>
+						</li>
+						<li>
+							<a href="../index.xhtml">
+							Sair
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			</nav>
+			
+
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<ui:insert name="conteudo">
+				
+			</ui:insert>
 
 		</div>
 		<!-- Fim container -->

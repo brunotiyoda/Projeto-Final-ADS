@@ -46,7 +46,4 @@ public class FuncionarioControllerLogin implements Serializable {
 		return "../index?faces-redirect=true";
 	}
 	
-	public String souColaborador() {
-		return "sou-colaborador?faces-redirect=true";
-	}
 }

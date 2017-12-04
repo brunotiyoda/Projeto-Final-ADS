@@ -4,15 +4,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import br.com.projetofinal.architecture.service.GenericService;
 import br.com.projetofinal.dao.CargoDAO;
 import br.com.projetofinal.model.Cargo;
 
-public class CargoService {
+public class CargoService extends GenericService<Cargo> {
 
 	@Inject
 	private CargoDAO dao;
-
-	private GenericService<Cargo> service;
 
 	public void salvar(Cargo entidade) {
 		dao.salvar(entidade);

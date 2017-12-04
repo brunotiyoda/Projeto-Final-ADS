@@ -1,11 +1,11 @@
-package br.com.projetofinal.dao;
+package br.com.projetofinal.architecture.dao;
 
 import java.io.Serializable;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import br.com.projetofinal.model.GenericModel;
+import br.com.projetofinal.architecture.model.GenericModel;
 
 @SuppressWarnings("serial")
 public class GenericDAO<Entidade extends GenericModel> implements Serializable {

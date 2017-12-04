@@ -4,15 +4,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import br.com.projetofinal.architecture.service.GenericService;
 import br.com.projetofinal.dao.DepartamentoDAO;
 import br.com.projetofinal.model.Departamento;
 
-public class DepartamentoService {
+public class DepartamentoService extends GenericService<Departamento> {
 
 	@Inject
 	private DepartamentoDAO dao;
-
-	private GenericService<Departamento> service;
 
 	public void salvar(Departamento entidade) {
 		dao.salvar(entidade);

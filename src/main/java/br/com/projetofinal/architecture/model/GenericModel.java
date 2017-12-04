@@ -1,4 +1,4 @@
-package br.com.projetofinal.model;
+package br.com.projetofinal.architecture.model;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,10 +12,6 @@ public class GenericModel {
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	@Override

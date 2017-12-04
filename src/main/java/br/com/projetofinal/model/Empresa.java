@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import br.com.projetofinal.architecture.model.GenericModel;
+
 @Entity
 public class Empresa extends GenericModel {
 

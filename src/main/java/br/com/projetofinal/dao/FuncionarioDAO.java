@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import br.com.projetofinal.architecture.dao.GenericDAO;
 import br.com.projetofinal.model.Funcionario;
 
 @SuppressWarnings("serial")
