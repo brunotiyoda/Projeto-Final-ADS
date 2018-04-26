@@ -1,47 +1,22 @@
 package br.com.projetofinal.controller;
 
-import java.io.Serializable;
-import java.util.List;
-
-import javax.enterprise.inject.Model;
-import javax.inject.Inject;
-
+import br.com.projetofinal.architecture.controller.GenericController;
+import br.com.projetofinal.architecture.service.GenericService;
 import br.com.projetofinal.model.Empresa;
 import br.com.projetofinal.service.EmpresaService;
-import br.com.projetofinal.tx.Transacional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@SuppressWarnings("serial")
-@Model
-public class EmpresaController implements Serializable {
+@Controller
+@RequestMapping("/empresa")
+public class EmpresaController extends GenericController<Empresa> {
 
-	@Inject
-	private EmpresaService service;
+	@Autowired
+	private EmpresaService empresaService;
 
-	private Empresa empresa = new Empresa();
-
-	public Empresa getEmpresa() {
-		return empresa;
+	@Override
+	public GenericService<Empresa> getGenericService() {
+		return empresaService;
 	}
-
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
-
-	@Transacional
-	public void salvar() {
-		service.salvar(empresa);
-	}
-
-	public void editar() {
-		service.editar(empresa);
-	}
-
-	public Empresa buscaPorId(Long id) {
-		return service.buscaPorId(id);
-	}
-
-	public List<Empresa> getEmpresas() {
-		return service.listarTudo();
-	}
-
 }

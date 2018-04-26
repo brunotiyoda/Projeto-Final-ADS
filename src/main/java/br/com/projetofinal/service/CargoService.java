@@ -1,32 +1,20 @@
 package br.com.projetofinal.service;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
+import br.com.projetofinal.architecture.dao.GenericDAO;
 import br.com.projetofinal.architecture.service.GenericService;
 import br.com.projetofinal.dao.CargoDAO;
 import br.com.projetofinal.model.Cargo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CargoService extends GenericService<Cargo> {
 
-	@Inject
-	private CargoDAO dao;
+    @Autowired
+    private CargoDAO cargoDAO;
 
-	public void salvar(Cargo entidade) {
-		dao.salvar(entidade);
-	}
-
-	public void editar(Cargo entidade) {
-		dao.editar(entidade);
-	}
-
-	public Cargo buscaPorId(Long id) {
-		return dao.buscaPorId(id);
-	}
-
-	public List<Cargo> listarTudo() {
-		return dao.listarTudo();
-	}
-
+    @Override
+    public GenericDAO<Cargo> getGenericDAO() {
+        return cargoDAO;
+    }
 }

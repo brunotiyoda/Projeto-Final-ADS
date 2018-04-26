@@ -1,64 +1,28 @@
 package br.com.projetofinal.dao;
 
-import java.io.Serializable;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-
 import br.com.projetofinal.architecture.dao.GenericDAO;
 import br.com.projetofinal.model.Funcionario;
 
-@SuppressWarnings("serial")
-public class FuncionarioDAO implements Serializable {
+import javax.persistence.TypedQuery;
+import java.util.List;
 
-	@Inject
-	private EntityManager entityManager;
+public class FuncionarioDAO extends GenericDAO<Funcionario> {
 
-	private GenericDAO<Funcionario> dao;
+    public boolean buscaLogin(Funcionario funcionario) {
 
-	@PostConstruct
-	public void init() {
-		this.dao = new GenericDAO<Funcionario>(this.entityManager, Funcionario.class);
-	}
+        TypedQuery<Funcionario> query = getEntityManager().createQuery("SELECT f FROM Funcionario f WHERE f.cpf = :pCpf AND f.senha = :pSenha", Funcionario.class);
+        query.setParameter("pCpf", funcionario.getCpf());
+        query.setParameter("pSenha", funcionario.getSenha());
 
-	public void salvar(Funcionario entidade) {
-		dao.salvar(entidade);
-	}
+        Funcionario resultado = query.getSingleResult();
 
-	public void editar(Funcionario entidade) {
-		dao.editar(entidade);
-	}
+        return resultado != null;
+    }
 
-	public void ativar(Funcionario entidade) {
-		dao.ativar(entidade);
-	}
-
-	public void inativar(Funcionario entidade) {
-		dao.inativar(entidade);
-	}
-
-	public Funcionario buscaPorId(Long id) {
-		return dao.buscaPorId(id);
-	}
-
-	public boolean buscaLogin(Funcionario funcionario) {
-
-		TypedQuery<Funcionario> query = entityManager.createQuery("SELECT f FROM Funcionario f WHERE f.cpf = :pCpf AND f.senha = :pSenha", Funcionario.class);
-		query.setParameter("pCpf", funcionario.getCpf());
-		query.setParameter("pSenha", funcionario.getSenha());
-
-		Funcionario resultado = query.getSingleResult();
-
-		return resultado != null;
-	}
-
-	public List<Funcionario> listarTudo() {
-		String jpql;
-		jpql = "SELECT f FROM Funcionario f ORDER BY f.nome";
-		return entityManager.createQuery(jpql, Funcionario.class).getResultList();
-	}
+    public List<Funcionario> listarTudo() {
+        String jpql;
+        jpql = "SELECT f FROM Funcionario f ORDER BY f.nome";
+        return getEntityManager().createQuery(jpql, Funcionario.class).getResultList();
+    }
 
 }

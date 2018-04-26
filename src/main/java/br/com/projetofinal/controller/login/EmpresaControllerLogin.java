@@ -1,3 +1,4 @@
+/*
 package br.com.projetofinal.controller.login;
 
 import java.io.Serializable;
@@ -16,15 +17,6 @@ public class EmpresaControllerLogin implements Serializable {
 
 	@Inject
 	private EmpresaDAO empresaDAO;
-
-	@Inject
-	private FacesContext context;
-
-	private Empresa empresa = new Empresa();
-
-	public Empresa getEmpresa() {
-		return empresa;
-	}
 
 	public String logar() {
 		// captura qual usuário está fazendo login
@@ -46,3 +38,4 @@ public class EmpresaControllerLogin implements Serializable {
 		return "../index?faces-redirect=true";
 	}
 }
+*/

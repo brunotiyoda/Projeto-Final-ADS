@@ -1,23 +1,33 @@
 package br.com.projetofinal.architecture.dao;
 
-import java.io.Serializable;
-
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-
 import br.com.projetofinal.architecture.model.GenericModel;
+import org.springframework.stereotype.Repository;
 
-@SuppressWarnings("serial")
-public class GenericDAO<Entidade extends GenericModel> implements Serializable {
-	
-	@Inject
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaQuery;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.List;
+
+@Repository
+public class GenericDAO<Entidade extends GenericModel> {
+
+	private Class<Entidade> entidade;
+
+	@PersistenceContext
 	private EntityManager entityManager;
 
-	private final Class<Entidade> entidade;
+	public GenericDAO() {
+		Type genericSuperClass = getClass().getGenericSuperclass();
 
-	public GenericDAO(EntityManager entityManager, Class<Entidade> entidade) {
-		this.entityManager = entityManager;
-		this.entidade = entidade;
+		if (genericSuperClass != null && !(genericSuperClass instanceof Class)) {
+			this.entidade = (Class<Entidade>) ((ParameterizedType) genericSuperClass).getActualTypeArguments()[0];
+		}
+	}
+
+	public EntityManager getEntityManager() {
+		return entityManager;
 	}
 
 	public void salvar(Entidade entidade) {
@@ -36,9 +46,21 @@ public class GenericDAO<Entidade extends GenericModel> implements Serializable {
 		entityManager.merge(entidade);
 	}
 
-	public Entidade buscaPorId(Long id) {
-		Entidade instancia = entityManager.find(entidade, id);
-		return instancia;
+	public void remover(Entidade entidade) {
+		entityManager.remove(entityManager.merge(entidade));
+	}
+
+	public Entidade buscaPorId(String id) {
+		return entityManager.find(this.entidade, id);
+	}
+
+	public List<Entidade> listaTodos() {
+		CriteriaQuery<Entidade> query = entityManager.getCriteriaBuilder().createQuery(entidade);
+		query.select(query.from(entidade));
+
+		List<Entidade> lista = entityManager.createQuery(query).getResultList();
+
+		return lista;
 	}
 
 }

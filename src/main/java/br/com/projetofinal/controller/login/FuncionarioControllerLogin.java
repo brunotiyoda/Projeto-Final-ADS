@@ -1,3 +1,4 @@
+/*
 package br.com.projetofinal.controller.login;
 
 import java.io.Serializable;
@@ -47,3 +48,4 @@ public class FuncionarioControllerLogin implements Serializable {
 	}
 	
 }
+*/

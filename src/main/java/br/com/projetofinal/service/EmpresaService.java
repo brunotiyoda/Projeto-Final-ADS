@@ -1,40 +1,18 @@
 package br.com.projetofinal.service;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
+import br.com.projetofinal.architecture.dao.GenericDAO;
 import br.com.projetofinal.architecture.service.GenericService;
 import br.com.projetofinal.dao.EmpresaDAO;
 import br.com.projetofinal.model.Empresa;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class EmpresaService extends GenericService<Empresa> {
 
-	@Inject
-	private EmpresaDAO dao;
+	@Autowired
+	private EmpresaDAO empresaDAO;
 
-	public void salvar(Empresa entidade) {
-		dao.salvar(entidade);
+	@Override
+	public GenericDAO<Empresa> getGenericDAO() {
+		return empresaDAO;
 	}
-
-	public void editar(Empresa entidade) {
-		dao.editar(entidade);
-	}
-
-	public void ativar(Empresa entidade) {
-		dao.ativar(entidade);
-	}
-
-	public void inativar(Empresa entidade) {
-		dao.inativar(entidade);
-	}
-
-	public Empresa buscaPorId(Long id) {
-		return dao.buscaPorId(id);
-	}
-
-	public List<Empresa> listarTudo() {
-		return dao.listarTudo();
-	}
-
 }

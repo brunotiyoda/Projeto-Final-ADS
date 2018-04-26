@@ -4,7 +4,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class GenericModel {
+public abstract class GenericModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
