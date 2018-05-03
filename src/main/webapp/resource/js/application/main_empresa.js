@@ -1,10 +1,14 @@
 'use strict';
 
-angular.module('empresa', ['ngRoute'])
+angular.module('apppj', ['ngRoute'])
     .config(['$routeProvider', '$locationProvider',
         function ($routeProvider, $locationProvider) {
 
             $routeProvider
+                .when('/empresa', {
+                    templateUrl: 'empresa/login/sou-empresa.html',
+                    controller: 'LoginController'
+                })
                 .when('/dashboard', {
                     templateUrl: '/empresa/dashboard/dashboard.html',
                     controller: 'DashboardController'
