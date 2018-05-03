@@ -21,20 +21,20 @@
 		name="font-awesome/4.7.0/css/font-awesome-jsf.css" />
 </h:head>
 
-<ui:composition template="emp-principal.xhtml">
+<ui:composition template="../dashboard/dashboard.html">
 
 	<ui:define name="conteudo">
 
 		<!-- Page Heading -->
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Cadastro de Departamento</h1>
+				<h1 class="page-header">Cadastro de Cargos</h1>
 			</div>
 		</div>
 		<!-- /.row -->
 
 		<fieldset>
-			<legend>Informações sobre o Departamento</legend>
+			<legend>Informações sobre o Cargo</legend>
 
 			<h:form>
 				<div class="row">
@@ -42,9 +42,9 @@
 						<div class="form-group">
 							<label>Nome</label>
 							<p:inputText id="nome" class="form-control"
-								placeholder="Nome Departamento" required="true"
+								placeholder="Nome Cargo" required="true"
 								requiredMessage="O campo Nome é requerido."
-								value="#{departamentoController.departamento.departamento}" />
+								value="#{cargoController.cargo.cargo}" />
 							<p:message for="nome" />
 						</div>
 
@@ -57,9 +57,9 @@
 							<label>Empresa</label>
 							<h:selectOneMenu id="cargo" class="form-control" required="true"
 								requiredMessage="O campo Empresa é requerido."
-								value="#{departamentoController.empresaId}">
-								<f:selectItem itemLabel="Empresa" noSelectionOption="true" />
-								<f:selectItems value="#{departamentoController.empresas}"
+								value="#{cargoController.empresaId}">
+								<f:selectItem itemLabel="Cargo" noSelectionOption="true" />
+								<f:selectItems value="#{cargoController.empresas}"
 									var="empresa" itemValue="#{empresa.id}"
 									itemLabel="#{empresa.nome}" />
 							</h:selectOneMenu>
@@ -67,10 +67,10 @@
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="pull-right">
 					<h:commandButton id="bntSalvar" class="btn btn-success"
-						value="Salvar" action="#{departamentoController.salvar}" />
+						value="Salvar" action="#{cargoController.salvar}" />
 				</div>
 			</h:form>
 		</fieldset>

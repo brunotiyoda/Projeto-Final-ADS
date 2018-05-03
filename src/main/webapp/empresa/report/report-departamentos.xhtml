@@ -21,33 +21,33 @@
 		name="font-awesome/4.7.0/css/font-awesome-jsf.css" />
 </h:head>
 
-<ui:composition template="emp-principal.xhtml">
+<ui:composition template="../dashboard/dashboard.html">
 
 	<ui:define name="conteudo">
 
 		<!-- Page Heading -->
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Cargos na Empresa</h1>
+				<h1 class="page-header">Departamentos na Empresa</h1>
 			</div>
 		</div>
 		<!-- /.row -->
 
 		<h:dataTable styleClass="table table-striped  table-bordered "
-			var="cargo" value="#{cargoController.cargos}">
+			var="departamento" value="#{departamentoController.departamentos}">
 			<h:column>
 				<f:facet name="header">ID</f:facet>
-				#{cargo.id}
+				#{departamento.id}
 			</h:column>
 
 			<h:column>
-				<f:facet name="header">Cargo</f:facet>
-				#{cargo.cargo}
+				<f:facet name="header">Departamento</f:facet>
+				#{departamento.departamento}
 			</h:column>
 
 			<h:column>
 				<f:facet name="header">Empresa</f:facet>
-				#{cargo.empresa.nome}
+				#{departamento.empresa.nome}
 			</h:column>
 		</h:dataTable>
 

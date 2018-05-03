@@ -1,3 +1,4 @@
+/*
 package br.com.projetofinal.model.test;
 
 import java.util.List;
@@ -34,3 +35,4 @@ public class CargoListTest {
 		
 	}
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package br.com.projetofinal.model.test;
 
 import javax.persistence.EntityManager;
@@ -38,4 +39,4 @@ public class FuncionarioTest {
 
 
 	}
-}
+}*/

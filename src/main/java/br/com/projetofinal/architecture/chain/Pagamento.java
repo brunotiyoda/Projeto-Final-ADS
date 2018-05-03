@@ -1,3 +1,4 @@
+/*
 package br.com.projetofinal.architecture.chain;
 
 import java.io.Serializable;
@@ -35,3 +36,4 @@ public class Pagamento implements Serializable {
 	}
 
 }
+*/

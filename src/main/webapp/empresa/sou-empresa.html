@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Web</title>
+    <title>Login Empresa</title>
 
     <base href="/">
     <meta charset="utf-8">
@@ -24,33 +24,45 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
           integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
           crossorigin="anonymous"></link>
-
 </head>
-
 <body>
+
+
 <div class="container">
     <div class="container-fluid">
 
-        <div style="position: absolute; top: 50%; left:50%; transform: translate(-50%,-50%);"></div>
-        <div class="row text-center" style="margin-top: 34%">
-            <div class="col">
-                <h2>
-                    Systems Way <span class="badge badge-secondary">RH</span>
-                </h2>
-                <a href="/empresa/sou-empresa.html" class="btn btn-outline-primary" role="button">Sou Empresa</a>
-            </div>
-            <div class="col">
-                <h2>
-                    Systems Way <span class="badge badge-secondary">Colaborador</span>
-                </h2>
-                <a href="/#" class="btn btn-outline-primary" role="button">Sou Colaborador</a>
+        <br>
+        <br>
+        <br>
+        <div class="card" style="width: 30rem; margin: 0 auto; float: none; margin-bottom: 10px;">
+            <div class="card-body">
+                <div class="text-center"> <!-- title center-->
+                    <h5>
+                        Systems Way <span class="badge badge-secondary">RH</span>
+                    </h5>
+                </div>
+
+                <form>
+                    <div class="form-group">
+                        <label>Usuário</label>
+                        <input class="form-control" placeholder="CNPJ">
+                        <small class="form-text text-muted">Apenas números</small>
+                     </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Senha</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                    </div>
+
+                    <a href="../index.html" role="button" class="btn btn-outline-danger">Voltar</a>
+                    <a href="/empresa/dashboard/dashboard.html" role="button" class="btn btn-outline-success">Entrar</a>
+                    <!--<button type="submit" class="btn btn-outline-success">Entrar</button>-->
+                </form>
             </div>
         </div>
 
     </div>
-    <!-- Fim container fluid -->
 </div>
-<!-- Fim container -->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -61,5 +73,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
+
 </body>
 </html>
